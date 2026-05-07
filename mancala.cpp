@@ -40,9 +40,21 @@ class Board{
 			}//end for loop
 		}//end winCondition()
 		
-		void movePieces(int userInput, bool playerTrun){
+		void movePieces(int userInput, bool playerTurn){
 			if(playerTurn==true){
-				//player1 turn
+				for(int i=userInput;i<board[1][userInput];i++){
+					board[1][i]++;
+					//userInput=2
+					//i=2;i<4;i++
+					//	board[1][2]=5
+					
+					//i=3;i<4;i++
+					//	board[1][3]=5
+					
+					//i=4;i<4;i++
+					//	board[1][4]=5
+				}
+				//board[1][userInput-1]=0;
 			}//end if
 			
 			else{
@@ -98,7 +110,7 @@ int main(){
 		
 		//runs player2 turn
 		else{
-			//
+			playerOneTurn=true;
 		}//end else
 	}//end while loop
 	if(mancala.leftBank>mancala.rightBank){
