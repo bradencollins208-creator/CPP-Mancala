@@ -41,61 +41,30 @@ class Board
 					{
 						return true;
 					}
-					
-					else
-					{
-						return false;
-					}
 				}
 			}
+
+			return false;
 		}
 		
-		void movePieces(int userInput, bool playerTurn)
+		void movePieces(int userInput, bool playerTurn)//userInput = 1
 		{
 			if(playerTurn == true)
 			{
-				for(int i = 0; i < board[1][userInput]; i++)
+				for(int i = userInput; i <= board[1][userInput]; i++)//i <= 4
 				{
-					if(i+userInput % 5 < 6)
+					if(i < 6)
 					{
-						board[1][i+userInput-1]++;
-					}
-					
-					else if(i+userInput % 6 == 0)
-					{
-						rightBank++;
-					}
-					
-					else if(i+userInput == 0){
-						//
+						board[1][i + 1]++;
 					}
 				}
-				board[1][userInput-1] = 0;
-			}
-		void movePieces(int userInput, bool playerTurn){
-			if(playerTurn==true){
-				for(int i=0;i<board[1][userInput-1];i++){
-					if(i+userInput%5<6){
-						board[1][i+userInput-1]++;
-					}
-					else if(i+userInput%6==0){
-						rightBank++;
-					}
-					else if(i+userInput==0){
-						//
-					}
-				}//end for loop
-				board[1][userInput-1]=0;
-			}//end if
-			
-			else
-			{
-				//player2 turn
+				board[1][userInput] = 0;
 			}
 		}
 };
 
-int main(){
+int main()
+{
 	//creates an instance of the Board class
 	Board mancala;
 	
@@ -135,7 +104,7 @@ int main(){
 				continue;
 			}
 			
-			if(mancala.board[1][iChoice-1] == 0)
+			if(mancala.board[1][iChoice - 1] == 0)
 			{
 				cout << "\nEmpty space\n";
 				continue;
@@ -143,7 +112,7 @@ int main(){
 
 			else
 			{
-				mancala.movePieces(iChoice-1, true);
+				mancala.movePieces((iChoice - 1), true);
 				playerOneTurn = false;
 			}
 		}
