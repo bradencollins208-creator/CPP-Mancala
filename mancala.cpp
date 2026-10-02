@@ -42,19 +42,18 @@ class Board{
 		
 		void movePieces(int userInput, bool playerTurn){
 			if(playerTurn==true){
-				for(int i=userInput;i<board[1][userInput];i++){
-					board[1][i]++;
-					//userInput=2
-					//i=2;i<4;i++
-					//	board[1][2]=5
-					
-					//i=3;i<4;i++
-					//	board[1][3]=5
-					
-					//i=4;i<4;i++
-					//	board[1][4]=5
-				}
-				//board[1][userInput-1]=0;
+				for(int i=0;i<board[1][userInput-1];i++){
+					if(i+userInput%5<6){
+						board[1][i+userInput-1]++;
+					}
+					else if(i+userInput%6==0){
+						rightBank++;
+					}
+					else if(i+userInput==0){
+						//
+					}
+				}//end for loop
+				board[1][userInput-1]=0;
 			}//end if
 			
 			else{
