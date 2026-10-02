@@ -72,6 +72,21 @@ class Board
 				}
 				board[1][userInput-1] = 0;
 			}
+		void movePieces(int userInput, bool playerTurn){
+			if(playerTurn==true){
+				for(int i=0;i<board[1][userInput-1];i++){
+					if(i+userInput%5<6){
+						board[1][i+userInput-1]++;
+					}
+					else if(i+userInput%6==0){
+						rightBank++;
+					}
+					else if(i+userInput==0){
+						//
+					}
+				}//end for loop
+				board[1][userInput-1]=0;
+			}//end if
 			
 			else
 			{
