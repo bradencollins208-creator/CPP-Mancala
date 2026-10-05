@@ -17,18 +17,18 @@ class Board
 		{
 			cout << "\n  6   5   4   3   2   1" << endl;
 			cout << "  ";
-			for(int i = 1; i < 13; i++)
+			for(int i = 1; i < 14; i++)
 			{
-				cout << board[i] << " | ";
-				if(i == 6)
+				if(i != 7)
 				{
-					cout << "\n" << board[0] << " ----------------------- " << board[7] << endl;
-					cout << "  ";
+					cout << board[i] << " | ";
+					
 				}
 
 				else if(i == 7)
 				{
-					continue;
+					cout << "\n" << board[0] << " ----------------------- " << board[7] << endl;
+					cout << "  ";
 				}
 			}
 			cout << endl;
@@ -44,7 +44,22 @@ class Board
 		//moves pieces from the selected hole to the next holes
 		void movePieces(int userInput, bool playerTurn)
 		{
-			//
+			int boardVal = userInput + 7;
+
+			if(playerTurn)
+			{
+				if(board[boardVal])
+				for(int i = 1; i <= board[boardVal]; i++)
+				{
+					board[i + 8]++;
+				}
+				board[boardVal] = 0;
+			}
+
+			else
+			{
+				//
+			}
 		}
 };
 
